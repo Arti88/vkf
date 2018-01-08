@@ -1,16 +1,28 @@
 <template>
-    <require from="./users-list-item.html"></require>
-    <h1>${title}</h1>
-    <form submit.trigger="addUser()">
-        <input type="text" value.bind="newUserId">
-        <button type="submit">Добавить</button>
-    </form>
+    <div class="users-list">
+        <require from="./users-list-item.html"></require>
+        <h1>${title}</h1>
+        <div class="users-list__adder">
+            <form submit.trigger="addUser()">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="33751109, id33751109 и т.д." value.bind="newUserId">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Добавить
+                    </button>
+                </div>
+            </form>
+        </div>
 
-    <ul>
-        <li repeat.for="u of users">
-            <input type="checkbox" checked.bind="u.isSelected">
-            <users-list-item user.bind="u"></users-list-item>
-            <button click.trigger="removeUser(u)">X</button>
-        </li>
-    </ul>
+
+        <div repeat.for="u of users">
+            <users-list-item
+                user.bind="u"
+                remove.call="removeUser(u)"
+                toggle.call="toggleUserSelection(u)">
+            </users-list-item>
+        </div>
+    </div>
 </template>
