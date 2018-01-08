@@ -1,6 +1,6 @@
 .users-list {
     width: 400px;
-    padding: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .users_list__hoverable {

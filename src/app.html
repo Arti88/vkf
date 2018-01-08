@@ -1,4 +1,15 @@
 <template>
     <require from="./components/users-list/users-list"></require>
-    <users-list></users-list>
+
+    <div style="padding:20px 20px 0 20px;width:400px;">
+        <button class="btn btn-primary form-control"
+            click.trigger="findAllFriends()"
+            if.bind="users.length > 1">
+            Построить
+        </button>
+    </div>
+
+    <users-list users.bind="users"></users-list>
+
+    <friends-list friends.bind="friends"></friends-list>
 </template>

@@ -1,9 +1,13 @@
+import * as _ from 'lodash';
+
+import {bindable, bindingMode} from 'aurelia-framework';
+
 import {IVKUser} from '../../interfaces/vk-user.interface';
 import {VK_FIELDS_GET_USERS} from '../../constants/fields-get-users.const';
 
 export class UsersList {
+    @bindable({ defaultBindingMode: bindingMode.twoWay }) users: IVKUser[];
     private title: string = 'Управление списком';
-    private users: IVKUser[] = [];
     private errorMsg: string = '';
     private newUserId: string = '';
 
@@ -23,18 +27,25 @@ export class UsersList {
                 this.showError(data.error.error_msg);
             } else {
                 const user = data.response[0] as IVKUser;
-                user.isSelected = false;
-                this.users.push(user);
+                if (user.deactivated === 'deleted') {
+                    this.showError('Account was deactivated and will not be added.');
+                } else {
+                    user.isSelected = false;
+                    this.users.push(user);
+                }
+
             }
             this.newUserId = '';
         });
     }
 
     removeUser(user: IVKUser): void {
+        this.errorMsg = '';
         this.users.splice(this.users.indexOf(user), 1);
     }
 
     toggleUserSelection(user: IVKUser): void {
+        this.errorMsg = '';
         user.isSelected = !user.isSelected;
     }
 

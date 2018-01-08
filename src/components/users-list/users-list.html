@@ -1,7 +1,9 @@
 <template>
     <div class="users-list">
         <require from="./users-list-item.html"></require>
-        <h1>${title}</h1>
+        <h3>
+            ${title}
+        </h3>
         <div class="users-list__adder">
             <form submit.trigger="addUser()">
                 <div class="form-group">
@@ -26,10 +28,5 @@
                 toggle.call="toggleUserSelection(u)">
             </users-list-item>
         </div>
-
-        <button class="btn btn-primary"
-            if.bind="users.length > 1">
-            Построить
-        </button>
     </div>
 </template>
