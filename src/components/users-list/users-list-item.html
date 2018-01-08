@@ -1,4 +1,12 @@
-<template bindable="user">
-    <span>${user.first_name}</span>
-    <span>${user.last_name}</span>
+<template bindable="user,remove,toggle">
+    <div class="panel panel-default users-list-item"
+         click.trigger="toggle()"
+         class.bind="user.isSelected ? 'users-list-item__selected' : ''">
+        <img src.one-time="user.photo_50" />
+        <span>${user.first_name}</span>
+        <span>${user.last_name}</span>
+        <a>
+            <small click.trigger="remove()">Удалить</small>
+        </a>
+    </div>
 </template>
