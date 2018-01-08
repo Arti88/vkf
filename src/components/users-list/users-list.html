@@ -19,7 +19,6 @@
             </form>
         </div>
 
-
         <div repeat.for="u of users">
             <users-list-item
                 user.bind="u"
@@ -27,5 +26,10 @@
                 toggle.call="toggleUserSelection(u)">
             </users-list-item>
         </div>
+
+        <button class="btn btn-primary"
+            if.bind="users.length > 1">
+            Построить
+        </button>
     </div>
 </template>

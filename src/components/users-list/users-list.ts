@@ -14,6 +14,10 @@ export class UsersList {
             this.showError('Invalid user id');
             return;
         }
+        if (this.alreadyAdded(id)) {
+            this.showError(`Duplicate user: ${id}`);
+            return;
+        }
         VK.api('users.get', {user_ids: [id], fields: VK_FIELDS_GET_USERS.join(',')}, data => {
             if (data.error) {
                 this.showError(data.error.error_msg);
@@ -40,6 +44,11 @@ export class UsersList {
     }
 
     showError(errorMsg: string = ''): void {
+        this.newUserId = '';
         this.errorMsg = errorMsg || 'Произошла неизвестная ошибка';
+    }
+
+    alreadyAdded(uid: string): boolean {
+        return _.findIndex(this.users, {uid: +uid}) > -1;
     }
 }
