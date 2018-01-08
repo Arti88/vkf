@@ -6,8 +6,9 @@ export interface IVKUser {
     hidden?: number;
     bdate?: string;
     sex?: number;
-    photo_50: string;
-    counters: {
+    photo_50?: string;
+    counters?: {
         friends: number
     }
+    isSelected?: boolean;
 }

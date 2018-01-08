@@ -1,0 +1,16 @@
+<template>
+    <require from="./users-list-item.html"></require>
+    <h1>${title}</h1>
+    <form submit.trigger="addUser()">
+        <input type="text" value.bind="newUserId">
+        <button type="submit">Добавить</button>
+    </form>
+
+    <ul>
+        <li repeat.for="u of users">
+            <input type="checkbox" checked.bind="u.isSelected">
+            <users-list-item user.bind="u"></users-list-item>
+            <button click.trigger="removeUser(u)">X</button>
+        </li>
+    </ul>
+</template>
