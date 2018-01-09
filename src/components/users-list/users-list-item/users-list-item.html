@@ -3,8 +3,8 @@
          click.trigger="toggle()"
          class.bind="user.isSelected ? 'users-list-item__selected' : ''">
         <img src.one-time="user.photo_50" />
-        <span>${user.first_name}</span>
         <span>${user.last_name}</span>
+        <span>${user.first_name}</span>
         <a>
             <small click.trigger="remove()">Удалить</small>
         </a>

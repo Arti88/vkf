@@ -1,10 +1,13 @@
 .users-list-item {
-    width: 360px;
     padding: 7px 10px;
     cursor: pointer;
 }
 
 .users-list-item__selected {
-    background-color: #000;
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.users-list-item__selected a {
     color: #fff;
 }

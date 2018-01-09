@@ -1,2 +1,4 @@
 @import "components/users-list/_users-list.css";
-@import "components/users-list/_users-list-item.css";
+@import "components/users-list/users-list-item/_users-list-item.css";
+@import "components/friends-list/_friends-list.css";
+@import "components/friends-list/friends-list-item/_friends-list-item.css";

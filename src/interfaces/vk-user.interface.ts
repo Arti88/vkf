@@ -7,8 +7,11 @@ export interface IVKUser {
     bdate?: string;
     sex?: number;
     photo_50?: string;
+    friends?: number[];
     counters?: {
         friends: number
     }
     isSelected?: boolean;
+    popularityIndex?: number;
+    age?: number;
 }

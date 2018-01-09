@@ -1,11 +1,11 @@
-export const VK_FIELDS_GET_USERS = [
+export const VK_USER_FIELDS = [
     'id',
     'first_name',
     'last_name',
     'deactivated',
-    'hidden',
     'bdate',
     'sex',
     'photo_50',
-    'counters'
+    'counters',
+    'hidden'
 ];
