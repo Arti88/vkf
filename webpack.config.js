@@ -30,7 +30,7 @@ module.exports = ({production, server, extractCss, coverage} = {}) => ({
     },
     entry: {
         app: ['aurelia-bootstrapper'],
-        vendor: ['bluebird', 'lodash']
+        vendor: ['bluebird', 'lodash', 'moment']
     },
     output: {
         path: outDir,

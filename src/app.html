@@ -1,15 +1,20 @@
 <template>
     <require from="./components/users-list/users-list"></require>
-
-    <div style="padding:20px 20px 0 20px;width:400px;">
-        <button class="btn btn-primary form-control"
-            click.trigger="findAllFriends()"
-            if.bind="users.length > 1">
-            Построить
-        </button>
+    <require from="./components/friends-list/friends-list"></require>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div style="padding:20px 20px 0 20px;">
+                    <button class="btn btn-primary form-control"
+                            click.trigger="findAllFriends()">
+                        Построить
+                    </button>
+                </div>
+                <users-list users.bind="users"></users-list>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+                <friends-list friends.bind="friends" if.bind="friends.length"></friends-list>
+            </div>
+        </div>
     </div>
-
-    <users-list users.bind="users"></users-list>
-
-    <friends-list friends.bind="friends"></friends-list>
 </template>

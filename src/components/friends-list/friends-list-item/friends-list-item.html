@@ -1,0 +1,13 @@
+<template bindable="friend,selectFriend">
+    <div class="panel panel-default friends-list-item"
+         css="background-color:rgba(51,122,183,${friend.popularityIndex});"
+         click.trigger="selectFriend()">
+        <img src.one-time="friend.photo_50" />
+        <span>${friend.last_name}</span>
+        <span>${friend.first_name}</span>
+        <span if.bind="friend.sex === 2">; М</span>
+        <span if.bind="friend.sex === 1">; Ж</span>
+        <span if.bind="friend.age">; ${friend.age}</span>
+        <span if.bind="friend.counters && friend.counters.friends">; Друзей: ${friend.counters.friends}</span>
+    </div>
+</template>

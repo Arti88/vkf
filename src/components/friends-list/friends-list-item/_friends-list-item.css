@@ -1,0 +1,7 @@
+.friends-list-item {
+    max-width: 360px;
+    padding: 7px 10px;
+    max-height: 66px;
+    cursor: pointer;
+    color: #000;
+}
