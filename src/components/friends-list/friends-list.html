@@ -8,6 +8,7 @@
         <div repeat.for="f of friends">
             <friends-list-item
                 class="friends_list__hoverable"
+                click.trigger="selectUser(f)"
                 friend.bind="f">
             </friends-list-item>
         </div>
