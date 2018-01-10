@@ -1,11 +1,11 @@
 import {PLATFORM} from 'aurelia-pal';
-import {AppRouter} from 'aurelia-router'
+import {Router, RouterConfiguration} from 'aurelia-router';
 
 export class App {
 
-    private router: AppRouter;
+    private router: Router;
 
-    configureRouter(config, router) {
+    configureRouter(config: RouterConfiguration, router: Router) {
         this.router = router;
         config.map([{
             route: '',
@@ -16,6 +16,7 @@ export class App {
             name: 'user',
             moduleId: PLATFORM.moduleName('pages/user')
         }]);
+        config.fallbackRoute('');
     }
 
 }

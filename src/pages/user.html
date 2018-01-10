@@ -1,9 +1,52 @@
 <template>
-    <div style="padding:20px 20px 0 20px;">
+    <require from="../components/users-list/users-list-item/users-list-item.html"></require>
+    <div class="users-list">
         <a class="btn btn-primary"
-            route-href="route: main;">
+           route-href="route: main;">
             <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
             Назад
         </a>
+        <h3>
+            Выбранный пользователь является другом для:
+        </h3>
+
+        <div repeat.for="user of addedBy">
+            <div class="panel panel-default users-list-item">
+                <img src.one-time="user.photo_50" />
+                <span>${user.last_name}</span>
+                <span>${user.first_name}</span>
+            </div>
+        </div>
+
+
+
+        <div if.bind="loaded && errorMsg">
+            ${errorMsg}
+        </div>
+
+        <div if.bind="loaded && !errorMsg">
+            <h3>
+                Стена пользователя ${selectedUser.first_name}:
+            </h3>
+            <div repeat.for="post of wallPosts">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <strong if.bind="post.post_type==='copy'">
+                            Reposted:
+                        </strong>
+                        <img if.bind="post.media && post.media.type==='photo'" src.one-time="post.media.thumb_src" />
+                        <p if.bind="post.media && post.media.type==='audio'">
+                            Audio: ${post.attachment.audio.artist} - ${post.attachment.audio.title}
+                        </p>
+                        <p if.bind="post.media && post.media.type==='share'">
+                            Shared a link: ${post.attachment.link.url}
+                        </p>
+                        <p if.bind="post.text">
+                            Text: ${post.text}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
